@@ -25,7 +25,7 @@
 	
 	<lexeme>
 		<type>STRING</type>
-		<regex>\'(.*)\'</regex>
+		<regex>\'([\w\d]*)'</regex>
 	</lexeme>
 	
 	<lexeme>
