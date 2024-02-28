@@ -12,7 +12,7 @@
         }
         public override string ToString()
         {
-            return "Token(Value="+Value+", Position=" + Position + ", TokenType=" + TokenType.Type.ToString() + ")\r\n";
+            return "Token(Value=\""+Value+"\", Position=" + Position + ", TokenType=" + TokenType.Type.ToString() + ")\r\n";
         }
     }
 }
