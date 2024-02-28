@@ -1,4 +1,5 @@
 # Лексический анализатор
+[Код Лексического анализатора](/code/WindowsFormsApp1/Core/Token)
 ## Тестовые запросы
 `create type test1 as enum ('created', 'approved', 'finshed');`
 
