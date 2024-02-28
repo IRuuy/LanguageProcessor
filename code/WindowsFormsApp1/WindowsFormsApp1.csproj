@@ -177,6 +177,9 @@
   <ItemGroup>
     <Content Include="Core\Token\TokenType\Lexemes.xml" />
     <Content Include="main_icon.ico" />
+    <Content Include="Lexemes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
