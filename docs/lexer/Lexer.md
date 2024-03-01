@@ -1,7 +1,5 @@
 # Лексический анализатор
 
-[Код Лексического анализатора](/code/WindowsFormsApp1/Core/Token)
-
 ## Грамматика
 ```
 <statement> -> <create> <moreSpace> <type> <moreSpace> <identifier> <moreSpace> <as> <moreSpace> <enum> <moreSpace> <args> <eof>
@@ -30,13 +28,6 @@
 <enum> -> "enum"
 <type> -> "type"
 ```
-
-## Тестовые запросы
-`create type test1 as enum ('created', 'approved', 'finshed');`
-![Пример работы](exampleAccess.png)
-
-`=`
-![Пример работы](exampleThrow.png)
 
 ## Диаграмма сканера
 ![Диаграмма сканера](Диаграмма.png)
