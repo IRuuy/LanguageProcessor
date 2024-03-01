@@ -35,13 +35,13 @@ namespace WindowsFormsApp1.Core.Token
                 if (match.Success){
                         string value = match.Groups[0].Value;
 
-                        tokens.Add(new Token(type, value, position));
-                        position += value.Length;
+                        Range range = new Range(position, position += value.Length);
+                        tokens.Add(new Token(type, value, range));
                         return;
-                    }
+                }
              }
             
-            throw new Exception();
+            throw new NotStatementException(position);
         }
     }
 }

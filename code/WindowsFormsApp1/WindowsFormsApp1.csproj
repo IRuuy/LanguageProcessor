@@ -56,7 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Token\Exception\NotStatementException.cs" />
     <Compile Include="Core\Token\Lexer.cs" />
+    <Compile Include="Core\Token\Range.cs" />
     <Compile Include="Core\Token\Token.cs" />
     <Compile Include="Core\Token\TokenType\LexemeFactory.cs" />
     <Compile Include="Core\Token\TokenType\TokenStream.cs" />
@@ -175,9 +177,8 @@
     <None Include="Resources\help_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Core\Token\TokenType\Lexemes.xml" />
     <Content Include="main_icon.ico" />
-    <Content Include="Lexemes.xml">
+    <Content Include="Resources\Regex.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

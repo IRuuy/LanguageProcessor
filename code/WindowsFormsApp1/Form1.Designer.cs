@@ -101,6 +101,12 @@
             this.save_btn = new System.Windows.Forms.Button();
             this.open_btn = new System.Windows.Forms.Button();
             this.create_btn = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tokenType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tokenValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tokenStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.msMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -115,6 +121,8 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // fastColoredTextBox1
@@ -433,6 +441,7 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
@@ -488,7 +497,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.25548F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 4, 0);
@@ -514,7 +523,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(288, 1);
+            this.label3.Location = new System.Drawing.Point(283, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 40);
             this.label3.TabIndex = 8;
@@ -526,7 +535,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(361, 1);
+            this.label1.Location = new System.Drawing.Point(356, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 40);
             this.label1.TabIndex = 9;
@@ -538,9 +547,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(444, 1);
+            this.label2.Location = new System.Drawing.Point(439, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 40);
+            this.label2.Size = new System.Drawing.Size(265, 40);
             this.label2.TabIndex = 10;
             this.label2.Text = "Сообщение";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -552,7 +561,7 @@
             this.label4.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(18, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(263, 40);
+            this.label4.Size = new System.Drawing.Size(258, 40);
             this.label4.TabIndex = 11;
             this.label4.Text = "Файл";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -789,6 +798,58 @@
             this.create_btn.UseVisualStyleBackColor = true;
             this.create_btn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(724, 127);
+            this.tabPage4.TabIndex = 2;
+            this.tabPage4.Text = "Список токенов";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tokenType,
+            this.tokenValue,
+            this.tokenStart,
+            this.End});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(718, 121);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // tokenType
+            // 
+            this.tokenType.HeaderText = "Тип токена";
+            this.tokenType.MinimumWidth = 6;
+            this.tokenType.Name = "tokenType";
+            // 
+            // tokenValue
+            // 
+            this.tokenValue.HeaderText = "Значение токена";
+            this.tokenValue.MinimumWidth = 6;
+            this.tokenValue.Name = "tokenValue";
+            // 
+            // tokenStart
+            // 
+            this.tokenStart.HeaderText = "Начало";
+            this.tokenStart.MinimumWidth = 6;
+            this.tokenStart.Name = "tokenStart";
+            // 
+            // End
+            // 
+            this.End.HeaderText = "Конец";
+            this.End.MinimumWidth = 6;
+            this.End.Name = "End";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -838,6 +899,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,6 +980,12 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripStatusLabel language_label;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tokenType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tokenValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tokenStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn End;
     }
 }
 

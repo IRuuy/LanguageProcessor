@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
         const float minSizeFont = 6f;
         const float maxSizeFont = 20f;
 
-        private string url = "Lexemes.xml";
+        private string url = "Resources/Regex.xml";
         private List<TokenType> lexemes;
         private Lexer lexer;
 
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
                 tb.Font = new Font(fontEditor, 9.75f);
                 tb.Dock = DockStyle.Fill;
                 tb.Paddings = new Padding(0, 5, 5, 5);
-                tb.Language = Language.CSharp;
+                tb.Language = Language.SQL;
                 var tab = new FATabStripItem(fileName != null ? Path.GetFileName(fileName) : "Новый документ", tb);
                 tab.Tag = fileName;
                 if (fileName != null)
@@ -387,14 +387,30 @@ namespace WindowsFormsApp1
             language_label.Text = InputLanguage.CurrentInputLanguage.Culture.DisplayName.ToString();
         }
 
-  
-
         private void start_btn_Click(object sender, EventArgs e)
         {
-            TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
-            output_tb.Text = "";
-            while (stream.hasNext())
-                output_tb.Text += stream.Next().ToString();
+            try
+            {
+                TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
+
+                tabControl2.SelectedIndex = 2;
+                output_tb.Text = "";
+
+                dataGridView1.Rows.Clear();
+                while (stream.hasNext())
+                {
+                    Token token = stream.Next();
+                    dataGridView1.Rows.Add(token.TokenType.Type, token.Value, token.Range.Start, token.Range.End);
+                }
+            }
+            catch(NotStatementException ex)
+            {
+                tabControl2.SelectedIndex = 0;
+                dataGridView1.Rows.Clear();
+                tabControl2.TabPages[2].Hide();
+
+                output_tb.Text = ex.Message;
+            }
         }
     }
 }

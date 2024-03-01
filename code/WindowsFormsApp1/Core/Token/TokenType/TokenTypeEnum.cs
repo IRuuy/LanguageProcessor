@@ -4,7 +4,7 @@
     {
         KEYWORD,
         
-        ITENTIFIER,
+        IDENTIFIER,
         
         STRING,
 

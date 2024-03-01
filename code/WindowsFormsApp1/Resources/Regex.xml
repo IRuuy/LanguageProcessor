@@ -19,13 +19,13 @@
 	</lexeme>
 
 	<lexeme>
-		<type>ITENTIFIER</type>
+		<type>IDENTIFIER</type>
 		<regex>[\w\d]+</regex>
 	</lexeme>
 	
 	<lexeme>
 		<type>STRING</type>
-		<regex>\'(.*)\'</regex>
+		<regex>\'([\w\d]*)'</regex>
 	</lexeme>
 	
 	<lexeme>

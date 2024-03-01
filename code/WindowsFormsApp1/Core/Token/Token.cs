@@ -4,15 +4,16 @@
     {
         public TokenType TokenType { get; set; }
         public string Value {  get; set; }
-        public int Position { get; set; }
-        public Token(TokenType TokenType, string Value, int Position) { 
+        public Range Range { get; set; }
+        // public int Position { get; set; }
+        public Token(TokenType TokenType, string Value, Range range) { 
             this.TokenType = TokenType;
             this.Value = Value;
-            this.Position = Position;
+            this.Range = range;
         }
         public override string ToString()
         {
-            return "Token(Value=\""+Value+"\", Position=" + Position + ", TokenType=" + TokenType.Type.ToString() + ")\r\n";
+            return "Token(Value=\""+Value+"\", Position=(" + Range.Start + "-" + Range.End + "), TokenType=" + TokenType.Type.ToString() + ")\r\n";
         }
     }
 }
