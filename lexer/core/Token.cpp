@@ -15,7 +15,10 @@ public:
         return _value;
     }
     string toString(){
-        return "Type:\t" + string(_type) +  "\t" + _range->toString() +  "\tValue:\t\"" + _value + "\"\t";
+        if( string(_type).length() > 7 )
+            return "Type:\t" + string(_type) +  "\t" + _range->toString() +  "\tValue:\t\"" + _value + "\"\t";
+        else
+            return "Type:\t" + string(_type) +  "\t\t" + _range->toString() +  "\tValue:\t\"" + _value + "\"\t";
     }
     Token(const char* type, string value, Range* range) {
         _type = type;
