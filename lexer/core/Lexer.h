@@ -7,3 +7,4 @@ using namespace std;
 
 const char* convertEnumToString(int value);
 vector<Token> getTokens(char string[]);
+

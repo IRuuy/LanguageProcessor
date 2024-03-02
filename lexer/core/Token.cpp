@@ -22,6 +22,7 @@ public:
         _value = value;
         _range = range;
     }
+    
 private:
     int _code;
     string _value;
