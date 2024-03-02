@@ -1,5 +1,16 @@
 # Лексический анализатор
 
+## Тесты
+`create type test1 as enum ('created', 'approved', 'finshed');`
+
+![TestImg](AccessStatement.png)
+
+<hr>
+
+`create as *`
+
+![TestImg](WrongStatement.png)
+
 ## Грамматика
 ```
 <statement> -> <create> <moreSpace> <type> <moreSpace> <identifier> <moreSpace> <as> <moreSpace> <enum> <moreSpace> <args> <eof>
