@@ -66,10 +66,10 @@ vector<Token> getTokens(char string[]) {
         if(token == -1) {
           throw std::invalid_argument("Некорректный токен на позиции: " + to_string(pos));
         } else {
-              Range* range = new Range(pos, pos+sizeof(yytext)/sizeof(char)-1);
+              Range* range = new Range(pos, pos+strlen(yytext)-1);
               Token* tok = new Token(token, yytext, range);
               tokens.push_back(*tok);
-              pos += sizeof(yytext)/sizeof(char);
+              pos += strlen(yytext);
         }
     }
     return tokens;

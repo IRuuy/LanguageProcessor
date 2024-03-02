@@ -6,9 +6,11 @@
 using namespace std;
 
 int main(int argc, char** argv){
+
     string statement;
     cout << "Input statenent: ";
     getline(cin, statement);
+
     try {
         vector<Token> vec = getTokens(statement.data());
         for(Token item : vec)
