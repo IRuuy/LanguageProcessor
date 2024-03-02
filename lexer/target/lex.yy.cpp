@@ -1861,7 +1861,7 @@ vector<Token> getTokens(char string[]) {
           throw std::invalid_argument("Некорректный токен на позиции: " + to_string(pos));
         } else {
               Range* range = new Range(pos, pos+strlen(yytext)-1);
-              Token* tok = new Token(token, yytext, range);
+              Token* tok = new Token(convertEnumToString(token), yytext, range);
               tokens.push_back(*tok);
               pos += strlen(yytext);
         }

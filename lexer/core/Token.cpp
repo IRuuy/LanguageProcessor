@@ -8,23 +8,23 @@ using namespace std;
 class Token
 {
 public:
-    int getCode(){
-        return _code;
+    const char* getCode(){
+        return _type;
     }
     string getValue(){
         return _value;
     }
     string toString(){
-        return "Code:\t" + std::to_string(_code) +  "\t" + _range->toString() +  "\tValue:\t\"" + _value + "\"\t";
+        return "Type:\t" + string(_type) +  "\t" + _range->toString() +  "\tValue:\t\"" + _value + "\"\t";
     }
-    Token(int code, string value, Range* range) {
-        _code = code;
+    Token(const char* type, string value, Range* range) {
+        _type = type;
         _value = value;
         _range = range;
     }
     
 private:
-    int _code;
+    const char* _type;
     string _value;
     Range* _range;
 };
