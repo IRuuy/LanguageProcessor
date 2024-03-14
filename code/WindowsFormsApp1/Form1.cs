@@ -1,22 +1,20 @@
-﻿using FarsiLibrary.Win;
+﻿using Antlr4.Runtime;
+using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
-using System.Security.Policy;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using WindowsFormsApp1.Core.Parser;
 using WindowsFormsApp1.Core.Token;
-using static System.Net.Mime.MediaTypeNames;
-
+using WindowsFormsApp1.Core.Parser;
+using System.Text.RegularExpressions;
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        FastColoredTextBox CurrentTB
+
+    FastColoredTextBox CurrentTB
         {
             get
             {
@@ -38,7 +36,7 @@ namespace WindowsFormsApp1
 
         private string url = "Resources/Regex.xml";
         private List<TokenType> lexemes;
-        private Lexer lexer;
+        private Core.Token.Lexer lexer;
 
         public Form1()
         {
@@ -60,7 +58,7 @@ namespace WindowsFormsApp1
             language_label.Text = InputLanguage.CurrentInputLanguage.Culture.DisplayName.ToString();
 
             lexemes = new LexemeFactory().getLexems(url);
-            lexer = new Lexer(lexemes);
+            lexer = new Core.Token.Lexer(lexemes);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -393,50 +391,81 @@ namespace WindowsFormsApp1
 
         private void start_btn_Click(object sender, EventArgs e)
         {
-            Parser parser = new Parser();
             try
             {
-                parser.parse(CurrentTB.Text);
+                AntlrInputStream input = new AntlrInputStream(CurrentTB.Text);
+
+                EnumGrammarLexer lexer = new EnumGrammarLexer(input);
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+                EnumGrammarParser parser = new EnumGrammarParser(tokens);
+                BaseErrorListener errListener = new ErrorListener();
+                parser.AddErrorListener(errListener);
+                parser.stmt();
                 output_tb.Text = "";
             }
-            catch (RequireAnotherTokenException ex)
+            catch(RequireAnotherTokenException ex)
             {
                 tabControl2.SelectedIndex = 0;
                 dataGridView1.Rows.Clear();
                 tabControl2.TabPages[2].Hide();
 
                 output_tb.Text = ex.Message;
-
+                CurrentTB.Selection.ClearStyle();
                 string val = Regex.Match(ex.Message, "[0-9]+").Value;
                 int number = int.Parse(val);
 
                 FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
-                    (CurrentTB, new Place(number, 0), new Place(number+1, 0));
+                    (CurrentTB, new Place(number, 0), new Place(number + 1, 0));
                 range.SetStyle(RedStyle);
             }
 
-            /*try
-            {
-                TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
 
-                tabControl2.SelectedIndex = 2;
-                output_tb.Text = "";
 
-                dataGridView1.Rows.Clear();
-                while (stream.hasNext())
+                /*Parser parser = new Parser();
+                try
                 {
-                    Token token = stream.Next();
-                    dataGridView1.Rows.Add(token.TokenType.Type, token.Value, token.Range.Start, token.Range.End);
+                    parser.parse(CurrentTB.Text);
+                    output_tb.Text = "";
                 }
-            }
-            catch(NotStatementException ex)
-            {
-                tabControl2.SelectedIndex = 0;
-                dataGridView1.Rows.Clear();
-                tabControl2.TabPages[2].Hide();
+                catch (RequireAnotherTokenException ex)
+                {
+                    tabControl2.SelectedIndex = 0;
+                    dataGridView1.Rows.Clear();
+                    tabControl2.TabPages[2].Hide();
 
-                output_tb.Text = ex.Message;
-            }*/
-        }
+                    output_tb.Text = ex.Message;
+
+                    string val = Regex.Match(ex.Message, "[0-9]+").Value;
+                    int number = int.Parse(val);
+
+                    FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
+                        (CurrentTB, new Place(number, 0), new Place(number+1, 0));
+                    range.SetStyle(RedStyle);
+                }
+    */
+                /*try
+                {
+                    TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
+
+                    tabControl2.SelectedIndex = 2;
+                    output_tb.Text = "";
+
+                    dataGridView1.Rows.Clear();
+                    while (stream.hasNext())
+                    {
+                        Token token = stream.Next();
+                        dataGridView1.Rows.Add(token.TokenType.Type, token.Value, token.Range.Start, token.Range.End);
+                    }
+                }
+                catch(NotStatementException ex)
+                {
+                    tabControl2.SelectedIndex = 0;
+                    dataGridView1.Rows.Clear();
+                    tabControl2.TabPages[2].Hide();
+
+                    output_tb.Text = ex.Message;
+                }*/
+            }
     }
 }

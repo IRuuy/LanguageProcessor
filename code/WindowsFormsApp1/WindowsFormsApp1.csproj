@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +38,9 @@
     <ApplicationIcon>main_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr4.Runtime.Standard, Version=4.13.1.0, Culture=neutral, PublicKeyToken=e78b2c5abd1fcb3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr4.Runtime.Standard.4.13.1\lib\net45\Antlr4.Runtime.Standard.dll</HintPath>
+    </Reference>
     <Reference Include="FastColoredTextBox">
       <HintPath>..\..\..\..\Downloads\FastColoredTextBox-master\Binary\FastColoredTextBox.dll</HintPath>
     </Reference>
@@ -56,8 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Parser\Parser.cs" />
-    <Compile Include="Core\Parser\ParserAbstract.cs" />
+    <Compile Include="Core\Parser\.antlr\EnumGrammarLexer.cs" />
+    <Compile Include="Core\Parser\.antlr\EnumGrammarParser.cs" />
+    <Compile Include="Core\Parser\ErrorListener.cs" />
     <Compile Include="Core\Parser\RequireAnotherTokenException.cs" />
     <Compile Include="Core\Token\Exception\NotStatementException.cs" />
     <Compile Include="Core\Token\Lexer.cs" />
@@ -101,18 +107,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="Core\Parser\.antlr\EnumGrammar.interp" />
+    <None Include="Core\Parser\.antlr\EnumGrammar.tokens" />
+    <None Include="Core\Parser\.antlr\EnumGrammarLexer.interp" />
+    <None Include="Core\Parser\.antlr\EnumGrammarLexer.tokens" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -123,61 +134,61 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\copy_icon.png" />
+    <None Include="Resources\Images\copy_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\create_icon.png" />
+    <None Include="Resources\Images\create_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cut_icon.png" />
+    <None Include="Resources\Images\cut_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\document_icon.png" />
+    <None Include="Resources\Images\document_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder_icon.png" />
+    <None Include="Resources\Images\folder_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\help_icon.png" />
+    <None Include="Resources\Images\help_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\info_icon.png" />
+    <None Include="Resources\Images\info_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\paste_icon.png" />
+    <None Include="Resources\Images\paste_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\redo_icon.png" />
+    <None Include="Resources\Images\redo_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save_icon.png" />
+    <None Include="Resources\Images\save_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\start_icon.png" />
+    <None Include="Resources\Images\start_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\undo_icon.png" />
+    <None Include="Resources\Images\undo_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Panel Tools.png" />
+    <None Include="Resources\Images\Panel Tools.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\File.png" />
+    <None Include="Resources\Images\File.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\File1.png" />
+    <None Include="Resources\Images\File1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Images\Edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\main_icon.ico" />
+    <None Include="Resources\Images\main_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\info_icon.ico" />
+    <None Include="Resources\Images\info_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\help_icon.ico" />
+    <None Include="Resources\Images\help_icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="main_icon.ico" />
@@ -185,5 +196,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

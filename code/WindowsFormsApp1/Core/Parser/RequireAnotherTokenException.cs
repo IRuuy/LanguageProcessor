@@ -10,5 +10,7 @@ namespace WindowsFormsApp1.Core.Parser
     {
         public RequireAnotherTokenException(int pos)
             : base("Ожидался другой токен на позиции: " + pos) { }
+        public RequireAnotherTokenException(string msg)
+            : base(msg) { }
     }
 }

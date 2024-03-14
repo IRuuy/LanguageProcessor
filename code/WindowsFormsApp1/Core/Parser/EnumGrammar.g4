@@ -1,10 +1,3 @@
-# Лексический анализатор
-
-[Код Синтаксического анализатора](/code/WindowsFormsApp1/Core/Parser)
-
-## Грамматика ANTLR
-
-```
 grammar EnumGrammar;
 options
 {
@@ -51,16 +44,3 @@ endString   : RPAR close
               | (COMMA open);
 
 close       : EOS;
-```
-
-## Граф конечного автомата 
-![Диаграмма сканера](stateMachineGraph.jpg)
-
-## Тестовые запросы
-`create type test as enum ('approved', 'finshed');`
-![Пример работы](success.png)
-
-`create sdsd`
-![Пример работы](warning.png)
-
-
