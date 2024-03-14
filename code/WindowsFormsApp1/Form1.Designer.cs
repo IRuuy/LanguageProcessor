@@ -1,4 +1,5 @@
-﻿namespace WindowsFormsApp1
+﻿
+namespace WindowsFormsApp1
 {
     partial class Form1
     {
@@ -145,7 +146,6 @@
             this.fastColoredTextBox1.CharHeight = 33;
             this.fastColoredTextBox1.CharWidth = 18;
             this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fastColoredTextBox1.DefaultMarkerSize = 8;
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 18F);
             this.fastColoredTextBox1.IsReplaceMode = false;

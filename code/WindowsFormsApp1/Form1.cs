@@ -6,8 +6,11 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Security.Policy;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using WindowsFormsApp1.Core.Parser;
 using WindowsFormsApp1.Core.Token;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1
 {
@@ -386,10 +389,33 @@ namespace WindowsFormsApp1
         {
             language_label.Text = InputLanguage.CurrentInputLanguage.Culture.DisplayName.ToString();
         }
+        MarkerStyle RedStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(49, Color.Red)));
 
         private void start_btn_Click(object sender, EventArgs e)
         {
+            Parser parser = new Parser();
             try
+            {
+                parser.parse(CurrentTB.Text);
+                output_tb.Text = "";
+            }
+            catch (RequireAnotherTokenException ex)
+            {
+                tabControl2.SelectedIndex = 0;
+                dataGridView1.Rows.Clear();
+                tabControl2.TabPages[2].Hide();
+
+                output_tb.Text = ex.Message;
+
+                string val = Regex.Match(ex.Message, "[0-9]+").Value;
+                int number = int.Parse(val);
+
+                FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
+                    (CurrentTB, new Place(number, 0), new Place(number+1, 0));
+                range.SetStyle(RedStyle);
+            }
+
+            /*try
             {
                 TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
 
@@ -410,7 +436,7 @@ namespace WindowsFormsApp1
                 tabControl2.TabPages[2].Hide();
 
                 output_tb.Text = ex.Message;
-            }
+            }*/
         }
     }
 }
