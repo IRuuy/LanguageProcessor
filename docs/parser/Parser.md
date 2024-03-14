@@ -30,7 +30,7 @@ LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “
 ```
 
 ## Граф конечного автомата 
-![Диаграмма сканера](stateMachineGraph.jpg.png)
+![Диаграмма сканера](stateMachineGraph.jpg)
 
 ## Тестовые запросы
 `create type test as enum ('created', 'approved', 'finshed');`
