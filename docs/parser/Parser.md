@@ -36,7 +36,7 @@ LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “
 ![Пример работы](success.png)
 
 `create df type afds as enum ('adf')-`
-![Пример работы](warnings.png.png)
+![Пример работы](warnings.png)
 
 `create type test as enum ('created);`
 ![Пример работы](warning.png)
