@@ -406,7 +406,7 @@ namespace WindowsFormsApp1
                 tabControl2.TabPages[2].Hide();
 
                 output_tb.Text = ex.Message;
-
+                
                 string val = Regex.Match(ex.Message, "[0-9]+").Value;
                 int number = int.Parse(val);
 
