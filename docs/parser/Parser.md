@@ -26,7 +26,6 @@
 13) close → EOS; 
 
 LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “C” | ... | “Z”
-
 ```
 
 ## Граф конечного автомата 
@@ -35,6 +34,9 @@ LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “
 ## Тестовые запросы
 `create type test as enum ('created', 'approved', 'finshed');`
 ![Пример работы](success.png)
+
+`create df type afds as enum ('adf')-`
+![Пример работы](warnings.png.png)
 
 `create type test as enum ('created);`
 ![Пример работы](warning.png)

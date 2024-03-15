@@ -393,8 +393,25 @@ namespace WindowsFormsApp1
 
         private void start_btn_Click(object sender, EventArgs e)
         {
+            FastColoredTextBoxNS.Range range1 = new FastColoredTextBoxNS.Range
+                   (CurrentTB, new Place(0, 0), new Place(10, 0));
+            range1.ClearStyle();
+
             Parser parser = new Parser();
-            try
+            parser.parse(CurrentTB.Text);
+            output_tb.Text = "";
+            foreach(string err in parser.errors)
+            {
+                output_tb.Text += err + "\r\n";
+
+                string val = Regex.Match(err, "[0-9]+").Value;
+                int number = int.Parse(val);
+
+                FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
+                    (CurrentTB, new Place(number, 0), new Place(number + 1, 0));
+                range.SetStyle(RedStyle);
+            }
+            /*try
             {
                 parser.parse(CurrentTB.Text);
                 output_tb.Text = "";
@@ -413,7 +430,7 @@ namespace WindowsFormsApp1
                 FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
                     (CurrentTB, new Place(number, 0), new Place(number+1, 0));
                 range.SetStyle(RedStyle);
-            }
+            }*/
 
             /*try
             {
