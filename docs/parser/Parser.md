@@ -7,9 +7,7 @@
 ```
 grammar EnumGrammar;
 options
-{
-language=CSharp;
-}
+{language=CSharp;}
 
 // LEXEMES
 DIGIT       : [0-9];
@@ -24,33 +22,29 @@ QOUTE       : '\'';
 LPAR        : '(';
 RPAR        : ')';
 
-CREATE      : 'create' | 'CREATE';
-AS          : 'as' | 'AS';
-ENUM        : 'enum' | 'ENUM';
-TYPE        : 'type' | 'TYPE';
-
 // RULES
-stmt        : CREATE create;
+stmt        : ('create' | 'CREATE') create;
 
-create      : TYPE type;
+create      : ('type' | 'TYPE') type;
 type        : LETTER id;
 
 id          : LETTER id
-            | AS as;
+            | ('as' | 'AS') as;
 
-as          : ENUM enum;
+as          : ('enum' | 'ENUM') enum;
 
 enum        : LPAR open;
 open        : QOUTE string;
-string      : LETTER stringRem;
+string      : . stringRem;
 
-stringRem   : LETTER stringRem
-              | QOUTE endString;
+stringRem   : QOUTE endString
+              | . stringRem;
 
 endString   : RPAR close
               | (COMMA open);
 
 close       : EOS;
+
 ```
 
 ## Граф конечного автомата 

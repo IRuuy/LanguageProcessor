@@ -19,7 +19,7 @@
 	</lexeme>
 
 	<lexeme>
-		<type>ITENTIFIER</type>
+		<type>IDENTIFIER</type>
 		<regex>[\w\d]+</regex>
 	</lexeme>
 	

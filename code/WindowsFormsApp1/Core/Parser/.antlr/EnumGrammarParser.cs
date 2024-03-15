@@ -36,23 +36,25 @@ public partial class EnumGrammarParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		DIGIT=1, LETTER=2, SPACE=3, UNDER_LINE=4, COMMA=5, EOS=6, QOUTE=7, LPAR=8, 
-		RPAR=9, CREATE=10, AS=11, ENUM=12, TYPE=13;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, DIGIT=9, 
+		LETTER=10, SPACE=11, UNDER_LINE=12, COMMA=13, EOS=14, QOUTE=15, LPAR=16, 
+		RPAR=17;
 	public const int
-		RULE_stmt = 0, RULE_create = 1, RULE_type = 2, RULE_id = 3, RULE_idRem = 4, 
-		RULE_as = 5, RULE_enum = 6, RULE_open = 7, RULE_string = 8, RULE_stringRem = 9, 
-		RULE_endString = 10, RULE_close = 11;
+		RULE_stmt = 0, RULE_create = 1, RULE_type = 2, RULE_id = 3, RULE_as = 4, 
+		RULE_enum = 5, RULE_open = 6, RULE_string = 7, RULE_stringRem = 8, RULE_endString = 9, 
+		RULE_close = 10;
 	public static readonly string[] ruleNames = {
-		"stmt", "create", "type", "id", "idRem", "as", "enum", "open", "string", 
-		"stringRem", "endString", "close"
+		"stmt", "create", "type", "id", "as", "enum", "open", "string", "stringRem", 
+		"endString", "close"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, null, null, null, "'_'", "','", "';'", "'''", "'('", "')'"
+		null, "'create'", "'CREATE'", "'type'", "'TYPE'", "'as'", "'AS'", "'enum'", 
+		"'ENUM'", null, null, null, "'_'", "','", "';'", "'''", "'('", "')'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, "DIGIT", "LETTER", "SPACE", "UNDER_LINE", "COMMA", "EOS", "QOUTE", 
-		"LPAR", "RPAR", "CREATE", "AS", "ENUM", "TYPE"
+		null, null, null, null, null, null, null, null, null, "DIGIT", "LETTER", 
+		"SPACE", "UNDER_LINE", "COMMA", "EOS", "QOUTE", "LPAR", "RPAR"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -87,7 +89,6 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	public partial class StmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CREATE() { return GetToken(EnumGrammarParser.CREATE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public CreateContext create() {
 			return GetRuleContext<CreateContext>(0);
 		}
@@ -102,12 +103,20 @@ public partial class EnumGrammarParser : Parser {
 	public StmtContext stmt() {
 		StmtContext _localctx = new StmtContext(Context, State);
 		EnterRule(_localctx, 0, RULE_stmt);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 24;
-			Match(CREATE);
-			State = 25;
+			State = 22;
+			_la = TokenStream.LA(1);
+			if ( !(_la==T__0 || _la==T__1) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			State = 23;
 			create();
 			}
 		}
@@ -123,7 +132,6 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	public partial class CreateContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TYPE() { return GetToken(EnumGrammarParser.TYPE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -138,12 +146,20 @@ public partial class EnumGrammarParser : Parser {
 	public CreateContext create() {
 		CreateContext _localctx = new CreateContext(Context, State);
 		EnterRule(_localctx, 2, RULE_create);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 27;
-			Match(TYPE);
-			State = 28;
+			State = 25;
+			_la = TokenStream.LA(1);
+			if ( !(_la==T__2 || _la==T__3) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			State = 26;
 			type();
 			}
 		}
@@ -177,9 +193,9 @@ public partial class EnumGrammarParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 30;
+			State = 28;
 			Match(LETTER);
-			State = 31;
+			State = 29;
 			id();
 			}
 		}
@@ -196,8 +212,11 @@ public partial class EnumGrammarParser : Parser {
 
 	public partial class IdContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LETTER() { return GetToken(EnumGrammarParser.LETTER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public IdRemContext idRem() {
-			return GetRuleContext<IdRemContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public IdContext id() {
+			return GetRuleContext<IdContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AsContext @as() {
+			return GetRuleContext<AsContext>(0);
 		}
 		public IdContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -210,65 +229,34 @@ public partial class EnumGrammarParser : Parser {
 	public IdContext id() {
 		IdContext _localctx = new IdContext(Context, State);
 		EnterRule(_localctx, 6, RULE_id);
+		int _la;
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 33;
-			Match(LETTER);
-			State = 34;
-			idRem();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class IdRemContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LETTER() { return GetToken(EnumGrammarParser.LETTER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public IdRemContext idRem() {
-			return GetRuleContext<IdRemContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AS() { return GetToken(EnumGrammarParser.AS, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public AsContext @as() {
-			return GetRuleContext<AsContext>(0);
-		}
-		public IdRemContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_idRem; } }
-	}
-
-	[RuleVersion(0)]
-	public IdRemContext idRem() {
-		IdRemContext _localctx = new IdRemContext(Context, State);
-		EnterRule(_localctx, 8, RULE_idRem);
-		try {
-			State = 40;
+			State = 35;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case LETTER:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 36;
+				State = 31;
 				Match(LETTER);
-				State = 37;
-				idRem();
+				State = 32;
+				id();
 				}
 				break;
-			case AS:
+			case T__4:
+			case T__5:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 38;
-				Match(AS);
-				State = 39;
+				State = 33;
+				_la = TokenStream.LA(1);
+				if ( !(_la==T__4 || _la==T__5) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 34;
 				@as();
 				}
 				break;
@@ -288,7 +276,6 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	public partial class AsContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENUM() { return GetToken(EnumGrammarParser.ENUM, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public EnumContext @enum() {
 			return GetRuleContext<EnumContext>(0);
 		}
@@ -302,13 +289,21 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public AsContext @as() {
 		AsContext _localctx = new AsContext(Context, State);
-		EnterRule(_localctx, 10, RULE_as);
+		EnterRule(_localctx, 8, RULE_as);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 42;
-			Match(ENUM);
-			State = 43;
+			State = 37;
+			_la = TokenStream.LA(1);
+			if ( !(_la==T__6 || _la==T__7) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			State = 38;
 			@enum();
 			}
 		}
@@ -338,13 +333,13 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public EnumContext @enum() {
 		EnumContext _localctx = new EnumContext(Context, State);
-		EnterRule(_localctx, 12, RULE_enum);
+		EnterRule(_localctx, 10, RULE_enum);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 45;
+			State = 40;
 			Match(LPAR);
-			State = 46;
+			State = 41;
 			open();
 			}
 		}
@@ -374,13 +369,13 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public OpenContext open() {
 		OpenContext _localctx = new OpenContext(Context, State);
-		EnterRule(_localctx, 14, RULE_open);
+		EnterRule(_localctx, 12, RULE_open);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 48;
+			State = 43;
 			Match(QOUTE);
-			State = 49;
+			State = 44;
 			@string();
 			}
 		}
@@ -396,7 +391,6 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	public partial class StringContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LETTER() { return GetToken(EnumGrammarParser.LETTER, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public StringRemContext stringRem() {
 			return GetRuleContext<StringRemContext>(0);
 		}
@@ -410,13 +404,13 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public StringContext @string() {
 		StringContext _localctx = new StringContext(Context, State);
-		EnterRule(_localctx, 16, RULE_string);
+		EnterRule(_localctx, 14, RULE_string);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 51;
-			Match(LETTER);
-			State = 52;
+			State = 46;
+			MatchWildcard();
+			State = 47;
 			stringRem();
 			}
 		}
@@ -432,13 +426,12 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	public partial class StringRemContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LETTER() { return GetToken(EnumGrammarParser.LETTER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public StringRemContext stringRem() {
-			return GetRuleContext<StringRemContext>(0);
-		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode QOUTE() { return GetToken(EnumGrammarParser.QOUTE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public EndStringContext endString() {
 			return GetRuleContext<EndStringContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StringRemContext stringRem() {
+			return GetRuleContext<StringRemContext>(0);
 		}
 		public StringRemContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -450,31 +443,29 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public StringRemContext stringRem() {
 		StringRemContext _localctx = new StringRemContext(Context, State);
-		EnterRule(_localctx, 18, RULE_stringRem);
+		EnterRule(_localctx, 16, RULE_stringRem);
 		try {
-			State = 58;
+			State = 53;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case LETTER:
+			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
+			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 54;
-				Match(LETTER);
-				State = 55;
-				stringRem();
-				}
-				break;
-			case QOUTE:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 56;
+				State = 49;
 				Match(QOUTE);
-				State = 57;
+				State = 50;
 				endString();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 51;
+				MatchWildcard();
+				State = 52;
+				stringRem();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -507,17 +498,17 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public EndStringContext endString() {
 		EndStringContext _localctx = new EndStringContext(Context, State);
-		EnterRule(_localctx, 20, RULE_endString);
+		EnterRule(_localctx, 18, RULE_endString);
 		try {
-			State = 64;
+			State = 59;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case RPAR:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 60;
+				State = 55;
 				Match(RPAR);
-				State = 61;
+				State = 56;
 				close();
 				}
 				break;
@@ -525,9 +516,9 @@ public partial class EnumGrammarParser : Parser {
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
-				State = 62;
+				State = 57;
 				Match(COMMA);
-				State = 63;
+				State = 58;
 				open();
 				}
 				}
@@ -559,11 +550,11 @@ public partial class EnumGrammarParser : Parser {
 	[RuleVersion(0)]
 	public CloseContext close() {
 		CloseContext _localctx = new CloseContext(Context, State);
-		EnterRule(_localctx, 22, RULE_close);
+		EnterRule(_localctx, 20, RULE_close);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 66;
+			State = 61;
 			Match(EOS);
 			}
 		}
@@ -579,23 +570,23 @@ public partial class EnumGrammarParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,13,69,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
-		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,1,0,1,0,1,0,1,1,1,1,1,1,1,2,1,
-		2,1,2,1,3,1,3,1,3,1,4,1,4,1,4,1,4,3,4,41,8,4,1,5,1,5,1,5,1,6,1,6,1,6,1,
-		7,1,7,1,7,1,8,1,8,1,8,1,9,1,9,1,9,1,9,3,9,59,8,9,1,10,1,10,1,10,1,10,3,
-		10,65,8,10,1,11,1,11,1,11,0,0,12,0,2,4,6,8,10,12,14,16,18,20,22,0,0,59,
-		0,24,1,0,0,0,2,27,1,0,0,0,4,30,1,0,0,0,6,33,1,0,0,0,8,40,1,0,0,0,10,42,
-		1,0,0,0,12,45,1,0,0,0,14,48,1,0,0,0,16,51,1,0,0,0,18,58,1,0,0,0,20,64,
-		1,0,0,0,22,66,1,0,0,0,24,25,5,10,0,0,25,26,3,2,1,0,26,1,1,0,0,0,27,28,
-		5,13,0,0,28,29,3,4,2,0,29,3,1,0,0,0,30,31,5,2,0,0,31,32,3,6,3,0,32,5,1,
-		0,0,0,33,34,5,2,0,0,34,35,3,8,4,0,35,7,1,0,0,0,36,37,5,2,0,0,37,41,3,8,
-		4,0,38,39,5,11,0,0,39,41,3,10,5,0,40,36,1,0,0,0,40,38,1,0,0,0,41,9,1,0,
-		0,0,42,43,5,12,0,0,43,44,3,12,6,0,44,11,1,0,0,0,45,46,5,8,0,0,46,47,3,
-		14,7,0,47,13,1,0,0,0,48,49,5,7,0,0,49,50,3,16,8,0,50,15,1,0,0,0,51,52,
-		5,2,0,0,52,53,3,18,9,0,53,17,1,0,0,0,54,55,5,2,0,0,55,59,3,18,9,0,56,57,
-		5,7,0,0,57,59,3,20,10,0,58,54,1,0,0,0,58,56,1,0,0,0,59,19,1,0,0,0,60,61,
-		5,9,0,0,61,65,3,22,11,0,62,63,5,5,0,0,63,65,3,14,7,0,64,60,1,0,0,0,64,
-		62,1,0,0,0,65,21,1,0,0,0,66,67,5,6,0,0,67,23,1,0,0,0,3,40,58,64
+		4,1,17,64,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		7,7,2,8,7,8,2,9,7,9,2,10,7,10,1,0,1,0,1,0,1,1,1,1,1,1,1,2,1,2,1,2,1,3,
+		1,3,1,3,1,3,3,3,36,8,3,1,4,1,4,1,4,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,1,7,
+		1,8,1,8,1,8,1,8,3,8,54,8,8,1,9,1,9,1,9,1,9,3,9,60,8,9,1,10,1,10,1,10,0,
+		0,11,0,2,4,6,8,10,12,14,16,18,20,0,4,1,0,1,2,1,0,3,4,1,0,5,6,1,0,7,8,55,
+		0,22,1,0,0,0,2,25,1,0,0,0,4,28,1,0,0,0,6,35,1,0,0,0,8,37,1,0,0,0,10,40,
+		1,0,0,0,12,43,1,0,0,0,14,46,1,0,0,0,16,53,1,0,0,0,18,59,1,0,0,0,20,61,
+		1,0,0,0,22,23,7,0,0,0,23,24,3,2,1,0,24,1,1,0,0,0,25,26,7,1,0,0,26,27,3,
+		4,2,0,27,3,1,0,0,0,28,29,5,10,0,0,29,30,3,6,3,0,30,5,1,0,0,0,31,32,5,10,
+		0,0,32,36,3,6,3,0,33,34,7,2,0,0,34,36,3,8,4,0,35,31,1,0,0,0,35,33,1,0,
+		0,0,36,7,1,0,0,0,37,38,7,3,0,0,38,39,3,10,5,0,39,9,1,0,0,0,40,41,5,16,
+		0,0,41,42,3,12,6,0,42,11,1,0,0,0,43,44,5,15,0,0,44,45,3,14,7,0,45,13,1,
+		0,0,0,46,47,9,0,0,0,47,48,3,16,8,0,48,15,1,0,0,0,49,50,5,15,0,0,50,54,
+		3,18,9,0,51,52,9,0,0,0,52,54,3,16,8,0,53,49,1,0,0,0,53,51,1,0,0,0,54,17,
+		1,0,0,0,55,56,5,17,0,0,56,60,3,20,10,0,57,58,5,13,0,0,58,60,3,12,6,0,59,
+		55,1,0,0,0,59,57,1,0,0,0,60,19,1,0,0,0,61,62,5,14,0,0,62,21,1,0,0,0,3,
+		35,53,59
 	};
 
 	public static readonly ATN _ATN =
