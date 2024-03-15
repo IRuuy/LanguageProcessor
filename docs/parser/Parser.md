@@ -46,6 +46,11 @@ endString   : RPAR close
 close       : EOS;
 
 ```
+## АСД
+
+Для выражения: `create type test as enum ('approved');`
+
+![three](https://github.com/IRuuy/LanguageProcessor/assets/86529035/737545be-d963-4ca0-a1e6-77d2151a1691)
 
 ## Граф конечного автомата 
 ![Диаграмма сканера](stateMachineGraph.jpg)
@@ -55,6 +60,7 @@ close       : EOS;
 ![Пример работы](success.png)
 
 `create sdsd`
+
 ![Пример работы](warning.png)
 
 
