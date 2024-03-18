@@ -31,17 +31,23 @@ LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “
 ## Граф конечного автомата 
 ![Диаграмма сканера](stateMachineGraph.jpg)
 
+------
 ## Тестовые запросы
-`create type test as enum ('created', 'approved', 'finshed');`
+**Тестовый запрос:** `create type test as enum ('created', 'approved', 'finshed');`
+
 ![Пример работы](success.png)
 
+------
+**Тестовый запрос:**
 ```
 create type test as enum
 create type test as enum ('created', 'approved', 'finshed');
 ```
 ![Пример работы](warning.png)
 
-`create df type afds as enum ('adf')-`
+------
+**Тестовый запрос:** `create df type afds as enum ('adf')-`
+
 ![Пример работы](warnings.png)
 
 
