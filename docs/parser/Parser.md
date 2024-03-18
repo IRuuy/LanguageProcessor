@@ -35,10 +35,14 @@ LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “
 `create type test as enum ('created', 'approved', 'finshed');`
 ![Пример работы](success.png)
 
+```
+create type test as enum
+create type test as enum ('created', 'approved', 'finshed');
+```
+![Пример работы](warning.png)
+
 `create df type afds as enum ('adf')-`
 ![Пример работы](warnings.png)
 
-`create type test as enum ('created);`
-![Пример работы](warning.png)
 
 

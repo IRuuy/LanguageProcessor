@@ -75,6 +75,11 @@ namespace WindowsFormsApp1
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tokenType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tokenValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tokenStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1_reduce_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1_increse_btn = new System.Windows.Forms.Button();
             this.faTabStripItem10 = new FarsiLibrary.Win.FATabStripItem();
@@ -104,11 +109,6 @@ namespace WindowsFormsApp1
             this.save_btn = new System.Windows.Forms.Button();
             this.open_btn = new System.Windows.Forms.Button();
             this.create_btn = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tokenType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tokenValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tokenStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.msMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -142,7 +142,7 @@ namespace WindowsFormsApp1
         '\''};
             this.fastColoredTextBox1.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
     "(?<range>:)\\s*(?<range>[^;]+);";
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(380, 33);
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(425, 33);
             this.fastColoredTextBox1.BackBrush = null;
             this.fastColoredTextBox1.CharHeight = 33;
             this.fastColoredTextBox1.CharWidth = 18;
@@ -173,7 +173,7 @@ namespace WindowsFormsApp1
             this.справкаToolStripMenuItem});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
-            this.msMain.Size = new System.Drawing.Size(807, 28);
+            this.msMain.Size = new System.Drawing.Size(807, 30);
             this.msMain.TabIndex = 1;
             this.msMain.Text = "menuStrip1";
             // 
@@ -186,7 +186,7 @@ namespace WindowsFormsApp1
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // createToolStripMenuItem
@@ -234,7 +234,7 @@ namespace WindowsFormsApp1
             this.deleteToolStripMenuItem,
             this.selectAllToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
-            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
             this.правкаToolStripMenuItem.Text = "Правка";
             // 
             // undoToolStripMenuItem
@@ -298,7 +298,7 @@ namespace WindowsFormsApp1
             this.списокЛитературыToolStripMenuItem,
             this.исходныйКодПрограммыToolStripMenuItem});
             this.постановкаЗадачиToolStripMenuItem.Name = "постановкаЗадачиToolStripMenuItem";
-            this.постановкаЗадачиToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.постановкаЗадачиToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.постановкаЗадачиToolStripMenuItem.Text = "Текст";
             // 
             // постановкаЗадачиToolStripMenuItem1
@@ -306,18 +306,21 @@ namespace WindowsFormsApp1
             this.постановкаЗадачиToolStripMenuItem1.Name = "постановкаЗадачиToolStripMenuItem1";
             this.постановкаЗадачиToolStripMenuItem1.Size = new System.Drawing.Size(363, 26);
             this.постановкаЗадачиToolStripMenuItem1.Text = "Постановка задачи";
+            this.постановкаЗадачиToolStripMenuItem1.Click += new System.EventHandler(this.постановкаЗадачиToolStripMenuItem1_Click);
             // 
             // грамматикаToolStripMenuItem
             // 
             this.грамматикаToolStripMenuItem.Name = "грамматикаToolStripMenuItem";
             this.грамматикаToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.грамматикаToolStripMenuItem.Text = "Грамматика";
+            this.грамматикаToolStripMenuItem.Click += new System.EventHandler(this.грамматикаToolStripMenuItem_Click);
             // 
             // классификацияГрамматикиToolStripMenuItem
             // 
             this.классификацияГрамматикиToolStripMenuItem.Name = "классификацияГрамматикиToolStripMenuItem";
             this.классификацияГрамматикиToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.классификацияГрамматикиToolStripMenuItem.Text = "Классификация грамматики";
+            this.классификацияГрамматикиToolStripMenuItem.Click += new System.EventHandler(this.классификацияГрамматикиToolStripMenuItem_Click);
             // 
             // методАнализаToolStripMenuItem
             // 
@@ -330,29 +333,33 @@ namespace WindowsFormsApp1
             this.диагностикаИНейтрализацияОшибокToolStripMenuItem.Name = "диагностикаИНейтрализацияОшибокToolStripMenuItem";
             this.диагностикаИНейтрализацияОшибокToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.диагностикаИНейтрализацияОшибокToolStripMenuItem.Text = "Диагностика и нейтрализация ошибок";
+            this.диагностикаИНейтрализацияОшибокToolStripMenuItem.Click += new System.EventHandler(this.диагностикаИНейтрализацияОшибокToolStripMenuItem_Click);
             // 
             // тестовыйПримерToolStripMenuItem
             // 
             this.тестовыйПримерToolStripMenuItem.Name = "тестовыйПримерToolStripMenuItem";
             this.тестовыйПримерToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.тестовыйПримерToolStripMenuItem.Text = "Тестовый пример";
+            this.тестовыйПримерToolStripMenuItem.Click += new System.EventHandler(this.тестовыйПримерToolStripMenuItem_Click);
             // 
             // списокЛитературыToolStripMenuItem
             // 
             this.списокЛитературыToolStripMenuItem.Name = "списокЛитературыToolStripMenuItem";
             this.списокЛитературыToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.списокЛитературыToolStripMenuItem.Text = "Список литературы";
+            this.списокЛитературыToolStripMenuItem.Click += new System.EventHandler(this.списокЛитературыToolStripMenuItem_Click);
             // 
             // исходныйКодПрограммыToolStripMenuItem
             // 
             this.исходныйКодПрограммыToolStripMenuItem.Name = "исходныйКодПрограммыToolStripMenuItem";
             this.исходныйКодПрограммыToolStripMenuItem.Size = new System.Drawing.Size(363, 26);
             this.исходныйКодПрограммыToolStripMenuItem.Text = "Исходный код программы";
+            this.исходныйКодПрограммыToolStripMenuItem.Click += new System.EventHandler(this.исходныйКодПрограммыToolStripMenuItem_Click);
             // 
             // пускToolStripMenuItem
             // 
             this.пускToolStripMenuItem.Name = "пускToolStripMenuItem";
-            this.пускToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.пускToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.пускToolStripMenuItem.Text = "Пуск";
             // 
             // справкаToolStripMenuItem
@@ -361,7 +368,7 @@ namespace WindowsFormsApp1
             this.вызовСправкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // вызовСправкиToolStripMenuItem
@@ -576,6 +583,41 @@ namespace WindowsFormsApp1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(718, 121);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Файл";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // tokenType
+            // 
+            this.tokenType.HeaderText = "Тип токена";
+            this.tokenType.MinimumWidth = 6;
+            this.tokenType.Name = "tokenType";
+            this.tokenType.ReadOnly = true;
+            // 
+            // tokenValue
+            // 
+            this.tokenValue.HeaderText = "Значение токена";
+            this.tokenValue.MinimumWidth = 6;
+            this.tokenValue.Name = "tokenValue";
+            this.tokenValue.ReadOnly = true;
+            // 
+            // tokenStart
+            // 
+            this.tokenStart.HeaderText = "Начало";
+            this.tokenStart.MinimumWidth = 6;
+            this.tokenStart.Name = "tokenStart";
+            this.tokenStart.ReadOnly = true;
+            // 
+            // End
+            // 
+            this.End.HeaderText = "Конец";
+            this.End.MinimumWidth = 6;
+            this.End.Name = "End";
+            this.End.ReadOnly = true;
             // 
             // tableLayoutPanel1_reduce_btn
             // 
@@ -808,41 +850,6 @@ namespace WindowsFormsApp1
             this.create_btn.TabIndex = 2;
             this.create_btn.UseVisualStyleBackColor = true;
             this.create_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Файл";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // tokenType
-            // 
-            this.tokenType.HeaderText = "Тип токена";
-            this.tokenType.MinimumWidth = 6;
-            this.tokenType.Name = "tokenType";
-            this.tokenType.ReadOnly = true;
-            // 
-            // tokenValue
-            // 
-            this.tokenValue.HeaderText = "Значение токена";
-            this.tokenValue.MinimumWidth = 6;
-            this.tokenValue.Name = "tokenValue";
-            this.tokenValue.ReadOnly = true;
-            // 
-            // tokenStart
-            // 
-            this.tokenStart.HeaderText = "Начало";
-            this.tokenStart.MinimumWidth = 6;
-            this.tokenStart.Name = "tokenStart";
-            this.tokenStart.ReadOnly = true;
-            // 
-            // End
-            // 
-            this.End.HeaderText = "Конец";
-            this.End.MinimumWidth = 6;
-            this.End.Name = "End";
-            this.End.ReadOnly = true;
             // 
             // Form1
             // 

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Core.Parser;
 using WindowsFormsApp1.Core.Parser.exception;
 using WindowsFormsApp1.Core.Token;
+using WindowsFormsApp1.Menu;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1
@@ -395,7 +396,7 @@ namespace WindowsFormsApp1
         private void start_btn_Click(object sender, EventArgs e)
         {
             FastColoredTextBoxNS.Range range1 = new FastColoredTextBoxNS.Range
-                   (CurrentTB, new Place(0, 0), new Place(10, 0));
+                   (CurrentTB, new Place(0, 0), new Place(10, 1));
             range1.ClearStyle();
 
             Parser parser = new Parser();
@@ -422,52 +423,41 @@ namespace WindowsFormsApp1
                     (CurrentTB, new Place(number, col - 1), new Place(number+1, col - 1));
                 range.SetStyle(RedStyle);
             }
+        }
 
-            /*
-             * 
-             * try
-            {
-                parser.parse(CurrentTB.Text);
-                output_tb.Text = "";
-            }
-            catch (RequireAnotherTokenException ex)
-            {
-                tabControl2.SelectedIndex = 0;
-                dataGridView1.Rows.Clear();
-                tabControl2.TabPages[2].Hide();
+        private void грамматикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GrammarInfo().Show();
+        }
 
-                output_tb.Text = ex.Message;
-                
-                string val = Regex.Match(ex.Message, "[0-9]+").Value;
-                int number = int.Parse(val);
+        private void постановкаЗадачиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Реализовать языковой процессор для перечислений в СУБД PostgreSQL, с лексическим и синтаксическими анализаторами.", "Постановка задачи");
+        }
 
-                FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
-                    (CurrentTB, new Place(number, 0), new Place(number+1, 0));
-                range.SetStyle(RedStyle);
-            }*/
+        private void исходныйКодПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/IRuuy/LanguageProcessor/tree/main");
+        }
 
-            /*try
-            {
-                TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
+        private void списокЛитературыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReferencesInfo().Show();
+        }
 
-                tabControl2.SelectedIndex = 2;
-                output_tb.Text = "";
+        private void тестовыйПримерToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new TestExample().Show();
+        }
 
-                dataGridView1.Rows.Clear();
-                while (stream.hasNext())
-                {
-                    Token token = stream.Next();
-                    dataGridView1.Rows.Add(token.TokenType.Type, token.Value, token.Range.Start, token.Range.End);
-                }
-            }
-            catch(NotStatementException ex)
-            {
-                tabControl2.SelectedIndex = 0;
-                dataGridView1.Rows.Clear();
-                tabControl2.TabPages[2].Hide();
+        private void диагностикаИНейтрализацияОшибокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DiagnosticsAndNeutralizationOfErrors().Show();
+        }
 
-                output_tb.Text = ex.Message;
-            }*/
+        private void классификацияГрамматикиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Конечный недетерминированный автомат.", "Классификация грамматики");
         }
     }
 }

@@ -89,6 +89,30 @@
     <Compile Include="Info.Designer.cs">
       <DependentUpon>Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\DiagnosticsAndNeutralizationOfErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\DiagnosticsAndNeutralizationOfErrors.Designer.cs">
+      <DependentUpon>DiagnosticsAndNeutralizationOfErrors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\GrammarInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\GrammarInfo.Designer.cs">
+      <DependentUpon>GrammarInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\References.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\References.Designer.cs">
+      <DependentUpon>References.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\TestExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\TestExample.Designer.cs">
+      <DependentUpon>TestExample.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -99,6 +123,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\DiagnosticsAndNeutralizationOfErrors.resx">
+      <DependentUpon>DiagnosticsAndNeutralizationOfErrors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\GrammarInfo.resx">
+      <DependentUpon>GrammarInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\References.resx">
+      <DependentUpon>References.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\TestExample.resx">
+      <DependentUpon>TestExample.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +221,7 @@
     <Content Include="Resources\Regex.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\testExample.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,9 +10,13 @@ namespace WindowsFormsApp1.Core.Parser
         public abstract void parse(string statement);
         protected void skipTabs(string statement, ref int position, ref string output)
         {
-            string pattern = "^" + "[\\s\\t\\n\\r]";
-            while (Regex.Match(statement.Substring(position), pattern).Success)
+            string pattern = "^" + "[\\s]";
+            Match match;
+            while ((match = Regex.Match(statement.Substring(position), pattern)).Success)
+            {
+                output += match.Value;
                 position++;
+            }
         }
 
         protected void executeProd(
@@ -49,7 +53,7 @@ namespace WindowsFormsApp1.Core.Parser
                     Match match = Regex.Match(statement.Substring(position), pattern);
                     if (match.Success)
                     {
-                        output += match.Groups[0].Value + " ";
+                        output += match.Groups[0].Value;
                         actions[i]?.Invoke(statement, position + match.Groups[0].Value.Length);
                         return;
                     }

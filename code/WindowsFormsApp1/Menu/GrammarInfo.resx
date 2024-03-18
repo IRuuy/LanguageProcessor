@@ -117,65 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="create_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\create_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="redo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\redo_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Panel Tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Panel Tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="copy_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copy_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="undo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\undo_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="help_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cut_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cut_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="File1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\File1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\File.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="help_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="document_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paste_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paste_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="main_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folder_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="testExample" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\testExample.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>1) stmt → CREATE create;
+
+2) create → TYPE type;
+3) type → LETTER id;
+
+4) id → LETTER id;
+5) id → AS as
+6) as → ENUM enum;
+
+7) enum → LPAR open;
+8) open → QOUTE string;
+9) string → LETTER stringRem;
+
+10) stringRem → LETTER stringRem
+11) stringRem → QOUTE endString;
+
+12) endString → RPAR close | (COMMA open);
+
+13) close → EOS; 
+
+LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “C” | ... | “Z”
+</value>
   </data>
 </root>
