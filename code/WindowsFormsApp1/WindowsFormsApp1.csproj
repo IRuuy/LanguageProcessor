@@ -56,9 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Parser\exception\ParserException.cs" />
     <Compile Include="Core\Parser\Parser.cs" />
     <Compile Include="Core\Parser\ParserAbstract.cs" />
-    <Compile Include="Core\Parser\RequireAnotherTokenException.cs" />
+    <Compile Include="Core\Parser\exception\RequireAnotherTokenException.cs" />
     <Compile Include="Core\Token\Exception\NotStatementException.cs" />
     <Compile Include="Core\Token\Lexer.cs" />
     <Compile Include="Core\Token\Range.cs" />

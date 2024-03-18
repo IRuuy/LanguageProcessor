@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsApp1.Core.Parser;
+using WindowsFormsApp1.Core.Parser.exception;
 using WindowsFormsApp1.Core.Token;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -400,18 +401,31 @@ namespace WindowsFormsApp1
             Parser parser = new Parser();
             parser.parse(CurrentTB.Text);
             output_tb.Text = "";
-            foreach(string err in parser.errors)
-            {
-                output_tb.Text += err + "\r\n";
 
-                string val = Regex.Match(err, "[0-9]+").Value;
-                int number = int.Parse(val);
+            output_tb.Text = parser.Result + "\r\n";
+            dataGridView2.Rows.Clear();
+
+
+            foreach (RequireAnotherTokenException err in parser.errors)
+            {
+                int number = err.Position;
+                int col = 1;
+
+                for (int i = 0; CurrentTB[i].Text.Length + 1 < number; i++)
+                {
+                    col++;
+                    number -= CurrentTB[i].Text.Length + 2;
+                }
+                dataGridView2.Rows.Add(tsFiles.SelectedItem.Title, col,number, err.Message);
 
                 FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
-                    (CurrentTB, new Place(number, 0), new Place(number + 1, 0));
+                    (CurrentTB, new Place(number, col - 1), new Place(number+1, col - 1));
                 range.SetStyle(RedStyle);
             }
-            /*try
+
+            /*
+             * 
+             * try
             {
                 parser.parse(CurrentTB.Text);
                 output_tb.Text = "";
