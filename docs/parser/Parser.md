@@ -10,8 +10,9 @@
 2) create → TYPE type;
 3) type → LETTER id;
 
-4) id → LETTER id;
-5) id → AS as
+4) id → LETTER idRem;
+5) idRem -> LETTER idRem | AS as;
+
 6) as → ENUM enum;
 
 7) enum → LPAR open;
