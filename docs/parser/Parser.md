@@ -10,8 +10,7 @@
 2) create → TYPE type;
 3) type → LETTER id;
 
-4) id → LETTER idRem;
-5) idRem -> LETTER idRem | AS as;
+4) id → LETTER id | AS as;
 
 6) as → ENUM enum;
 
