@@ -405,7 +405,10 @@ namespace WindowsFormsApp1
 
             output_tb.Text = parser.Result + "\r\n";
             dataGridView2.Rows.Clear();
-
+            if(parser.errors.Count == 0)
+            {
+                MessageBox.Show("Программа отработала корректно!","Уведомление");
+            }
 
             foreach (RequireAnotherTokenException err in parser.errors)
             {
