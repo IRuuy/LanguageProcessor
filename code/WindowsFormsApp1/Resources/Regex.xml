@@ -2,19 +2,19 @@
 
 <lexemes>
 	<lexeme>
-		<type>KEYWORD</type>
+		<type>CREATE</type>
 		<regex>create</regex>
 	</lexeme>
 	<lexeme>
-		<type>KEYWORD</type>
+		<type>TYPE</type>
 		<regex>type</regex>
 	</lexeme>
 	<lexeme>
-		<type>KEYWORD</type>
+		<type>AS</type>
 		<regex>as</regex>
 	</lexeme>
 	<lexeme>
-		<type>KEYWORD</type>
+		<type>ENUM</type>
 		<regex>enum</regex>
 	</lexeme>
 

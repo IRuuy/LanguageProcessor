@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Core.Token
+﻿namespace WindowsFormsApp1.Core.Tokens
 {
     public class Token
     {

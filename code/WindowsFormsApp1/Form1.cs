@@ -8,9 +8,10 @@ using System.IO;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using WindowsFormsApp1.Core.NewParser;
 using WindowsFormsApp1.Core.Parser;
 using WindowsFormsApp1.Core.Parser.exception;
-using WindowsFormsApp1.Core.Token;
+using WindowsFormsApp1.Core.Tokens;
 using WindowsFormsApp1.Menu;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -396,35 +397,47 @@ namespace WindowsFormsApp1
         private void start_btn_Click(object sender, EventArgs e)
         {
             FastColoredTextBoxNS.Range range1 = new FastColoredTextBoxNS.Range
-                   (CurrentTB, new Place(0, 0), new Place(10, 1));
-            range1.ClearStyle();
-
-            Parser parser = new Parser();
-            parser.parse(CurrentTB.Text);
-            output_tb.Text = "";
-
-            output_tb.Text = parser.Result + "\r\n";
-            dataGridView2.Rows.Clear();
-            if(parser.errors.Count == 0)
+               (CurrentTB, new Place(0, 0), new Place(10, 1));
+                    range1.ClearStyle();
+            try
             {
-                MessageBox.Show("Программа отработала корректно!","Уведомление");
-            }
+                dataGridView2.Rows.Clear();
+                
+                TokenStream stream = lexer.getTokenStream(CurrentTB.Text);
+                NewParser parser = new NewParser();
+                parser.parseSTMT(stream);
 
-            foreach (RequireAnotherTokenException err in parser.errors)
-            {
-                int number = err.Position;
-                int col = 1;
-
-                for (int i = 0; CurrentTB[i].Text.Length + 1 < number; i++)
+                if (parser.ParserExceptions.Count == 0)
                 {
-                    col++;
-                    number -= CurrentTB[i].Text.Length + 2;
+                    MessageBox.Show("Программа отработала корректно!", "Уведомление");
+                } else
+                {
+                    tabControl2.SelectedIndex = 1;
                 }
-                dataGridView2.Rows.Add(tsFiles.SelectedItem.Title, col,number, err.Message);
 
-                FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
-                    (CurrentTB, new Place(number, col - 1), new Place(number+1, col - 1));
-                range.SetStyle(RedStyle);
+                foreach (RequireAnotherTokenException err in parser.ParserExceptions)
+                {
+                    int number = err.Position;
+                    int col = 1;
+
+                    for (int i = 0; CurrentTB[i].Text.Length + 1 < number; i++)
+                    {
+                        col++;
+                        number -= CurrentTB[i].Text.Length + 2;
+                    }
+                    dataGridView2.Rows.Add(tsFiles.SelectedItem.Title, col, number, err.ToString());
+
+                    FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range
+                   (CurrentTB, new Place(number, col - 1), new Place(number + 1, col - 1));
+                    range.SetStyle(RedStyle);
+                }
+            } catch(NotStatementException ex)
+            {
+                tabControl2.SelectedIndex = 0;
+                dataGridView1.Rows.Clear();
+                tabControl2.TabPages[2].Hide();
+
+                output_tb.Text = ex.Message;
             }
         }
 
@@ -460,7 +473,12 @@ namespace WindowsFormsApp1
 
         private void классификацияГрамматикиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Конечный недетерминированный автомат.", "Классификация грамматики");
+            MessageBox.Show("Контекстно-свободная грамматика.", "Классификация грамматики");
+        }
+
+        private void пускToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            start_btn_Click(sender, e);
         }
     }
 }

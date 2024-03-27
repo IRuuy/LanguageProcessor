@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsApp1.Core.Token
+namespace WindowsFormsApp1.Core.Tokens
 {
     internal class NotStatementException : Exception
     {

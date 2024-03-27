@@ -1,8 +1,11 @@
-﻿namespace WindowsFormsApp1.Core.Token
+﻿namespace WindowsFormsApp1.Core.Tokens
 {
     public enum TokenTypeEnum
     {
-        KEYWORD,
+        CREATE,
+        AS,
+        TYPE,
+        ENUM,
         
         IDENTIFIER,
         

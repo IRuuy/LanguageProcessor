@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
-namespace WindowsFormsApp1.Core.Token
+namespace WindowsFormsApp1.Core.Tokens
 {
     public class TokenStream
     {
         private List<Token> Tokens { get; set; }
-        private int CurrentIndex { get; set; }
+        public int CurrentIndex { get; set; }
 
         public TokenStream(List<Token> _tokens)
         {
@@ -14,5 +16,7 @@ namespace WindowsFormsApp1.Core.Token
         }
         public bool hasNext() => CurrentIndex < Tokens.Count;
         public Token Next() => Tokens[CurrentIndex++];
+        public Token GetNext() => Tokens[CurrentIndex];
+        public Token GetPrev() => Tokens[Math.Max(CurrentIndex - 1, 0)];
     }
 }

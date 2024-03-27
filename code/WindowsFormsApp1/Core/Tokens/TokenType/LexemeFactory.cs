@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace WindowsFormsApp1.Core.Token
+namespace WindowsFormsApp1.Core.Tokens
 {
     internal class LexemeFactory
     {

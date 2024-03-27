@@ -142,7 +142,7 @@ namespace WindowsFormsApp1
         '\''};
             this.fastColoredTextBox1.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
     "(?<range>:)\\s*(?<range>[^;]+);";
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(425, 33);
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(380, 33);
             this.fastColoredTextBox1.BackBrush = null;
             this.fastColoredTextBox1.CharHeight = 33;
             this.fastColoredTextBox1.CharWidth = 18;
@@ -173,7 +173,7 @@ namespace WindowsFormsApp1
             this.справкаToolStripMenuItem});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
-            this.msMain.Size = new System.Drawing.Size(807, 30);
+            this.msMain.Size = new System.Drawing.Size(807, 28);
             this.msMain.TabIndex = 1;
             this.msMain.Text = "menuStrip1";
             // 
@@ -186,7 +186,7 @@ namespace WindowsFormsApp1
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // createToolStripMenuItem
@@ -234,7 +234,7 @@ namespace WindowsFormsApp1
             this.deleteToolStripMenuItem,
             this.selectAllToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
-            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
+            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.правкаToolStripMenuItem.Text = "Правка";
             // 
             // undoToolStripMenuItem
@@ -298,7 +298,7 @@ namespace WindowsFormsApp1
             this.списокЛитературыToolStripMenuItem,
             this.исходныйКодПрограммыToolStripMenuItem});
             this.постановкаЗадачиToolStripMenuItem.Name = "постановкаЗадачиToolStripMenuItem";
-            this.постановкаЗадачиToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.постановкаЗадачиToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.постановкаЗадачиToolStripMenuItem.Text = "Текст";
             // 
             // постановкаЗадачиToolStripMenuItem1
@@ -359,8 +359,9 @@ namespace WindowsFormsApp1
             // пускToolStripMenuItem
             // 
             this.пускToolStripMenuItem.Name = "пускToolStripMenuItem";
-            this.пускToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.пускToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.пускToolStripMenuItem.Text = "Пуск";
+            this.пускToolStripMenuItem.Click += new System.EventHandler(this.пускToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -368,7 +369,7 @@ namespace WindowsFormsApp1
             this.вызовСправкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // вызовСправкиToolStripMenuItem

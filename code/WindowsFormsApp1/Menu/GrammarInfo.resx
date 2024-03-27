@@ -118,27 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>1) stmt → CREATE create;
+    <value>digit → “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9”
+letter → “a” | “b” | “c” | ... | “z” | “A” | “B” | “C” | ... | “Z”
 
-2) create → TYPE type;
-3) type → LETTER id;
+space → " "
+underLine → "_"
+comma → ,
+quotes → '
+lpar → (
+rpar → )
+eof → ;
 
-4) id → LETTER id;
-5) id → AS as
-6) as → ENUM enum;
+string → quotes .* quotes
+identifier → letter { letter | number | underline }
+create → "create"
+as → "as"
+enum → "enum"
+type → "type"
 
-7) enum → LPAR open;
-8) open → QOUTE string;
-9) string → LETTER stringRem;
 
-10) stringRem → LETTER stringRem
-11) stringRem → QOUTE endString;
+GRAMMAR
 
-12) endString → RPAR close | (COMMA open);
-
-13) close → EOS; 
-
-LETTER → “a” | “b” | “c” | ... | “z” | “A” | “B” | “C” | ... | “Z”
+STATEMENT → CREATE eof
+CREATE → create TYPE
+TYPE → type identifier AS
+AS → as ENUM
+ENUM → enum lpar ARGS rpar
+ARGS → string {comma string}
 </value>
   </data>
 </root>

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace WindowsFormsApp1.Core.Token
+namespace WindowsFormsApp1.Core.Tokens
 {
     internal class Lexer
     {
@@ -22,7 +23,7 @@ namespace WindowsFormsApp1.Core.Token
             while (position < statement.Length)
                 addToken(statement, ref position, tokens);
 
-            //tokens.removeIf(token -> token.getType().equals(SPACE));
+            tokens = tokens.Where(t => !t.TokenType.Type.Equals(TokenTypeEnum.SPACE)).ToList();
 
             return new TokenStream(tokens);
         }
@@ -45,3 +46,4 @@ namespace WindowsFormsApp1.Core.Token
         }
     }
 }
+//
